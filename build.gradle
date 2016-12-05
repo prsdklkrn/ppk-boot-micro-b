@@ -39,6 +39,7 @@ dependencies {
 	compile(group: 'com.google.guava', name: 'guava', version: '18.0')
 	compile('org.projectlombok:lombok:1.16.10')
 	compile project(':ppk-consul-client')
+	compile project(':ppk-metrics')
 	
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
