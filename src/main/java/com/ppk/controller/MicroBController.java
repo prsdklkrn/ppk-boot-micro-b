@@ -18,18 +18,19 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping
 public class MicroBController {
-	
-	private static final String		MS_BASE_METRIC_URL	= "/ms/v2/content";
 
-	private final MicroBService microAService;
+	private static final String	MS_BASE_METRIC_URL	= "/ms/v2/content";
+
+	private final MicroBService	microAService;
 
 	@Autowired
 	public MicroBController(MicroBService microAService) {
 		this.microAService = microAService;
 	}
 
-	@Timed(name = MS_BASE_METRIC_URL + "/.GET", absolute = true)
-	@ExceptionMetered(name = MS_BASE_METRIC_URL + "/.GET." + ExceptionMetered.DEFAULT_NAME_SUFFIX, absolute = true)
+	@Timed(name = MS_BASE_METRIC_URL + " == [GET]", absolute = true)
+	@ExceptionMetered(name = MS_BASE_METRIC_URL + " == [GET " + ExceptionMetered.DEFAULT_NAME_SUFFIX
+			+ "]", absolute = true)
 	@ApiOperation(value = "Get content  ", notes = "Get content ")
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Map<String, String> welcomeMessage() {
